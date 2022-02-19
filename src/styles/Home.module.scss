@@ -1,12 +1,9 @@
 @import '../styles/colours.scss';
 
 .mainContainer {
-  // background-color: $colour_primary;
   height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgb(2,0,36);
-background: linear-gradient(146deg, rgba(13, 4, 175, 0.93) 0%, rgb(41, 41, 177) 21%, rgba(69,212,255,1) 100%);
 }
