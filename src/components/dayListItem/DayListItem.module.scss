@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 75px;
+  height: 125px;
+  margin: 5px;
+  font-weight: 600;
+}
+
+.day {
+  text-align: center;
+}
+
+.imgWrapper {
+  text-align: center;
+}
+
+.temp {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 0 5px;
+}
+
+.dayTemp {
+  color: #333;
+  width: 49%;
+  text-align: left;
+}
+
+.nightTemp {
+  width: 49%;
+  text-align: right;
+  
+}
