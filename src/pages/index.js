@@ -2,12 +2,11 @@ import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import styles from '../styles/Home.module.scss';
 import DayList from '../components/dayList/DayList'
-import useLocationData from '../hooks/useLocationData';
+import useApplicationData from '../hooks/useApplicationData';
 
 export default function Home() {
-  const { latitude } = useLocationData();
+  const { forecast } = useApplicationData();
 
-  
 
   return (
     <div>
