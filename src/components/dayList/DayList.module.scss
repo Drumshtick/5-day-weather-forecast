@@ -1,7 +1,10 @@
 @import '../../styles/colours.scss';
 
 .container {
-  border: 1px solid $border_colour;
+  color: $font_primary;
+  // border: 1px solid $border_colour;
   display: flex;
   flex-direction: row;
+  // background-color: $border_colour;
+  padding: 0;
 }
