@@ -7,7 +7,6 @@ export default function useApplicationData() {
     lat: null,
     long: null,
   });
-
   const [ forecast, setForecast ] = useState({
     0: {},
     1: {},
@@ -25,7 +24,7 @@ export default function useApplicationData() {
   useEffect(() => {
     console.log(location)
     if (location.lat || location.long) {
-      axios.get('/api/get4DayForecast')
+      axios.get('/api/get4DayForecast', {params: {lat: location.lat, long: location.long}})
       .then(response => {
         console.log(response.data)
       })
