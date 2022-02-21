@@ -1,8 +1,11 @@
 import styles from './DayListItem.module.scss';
 import Image from 'next/image';
-export default function DayListItem() {
+
+export default function DayListItem(props) {
+  const { current } = props;
+  console.log(props)
   return (
-    <li className={styles.container}>
+    <li className={`${styles.container} ${current && styles.current}`}>
       <header className={styles.day}>Mon</header>
       <div className={styles.imgWrapper}>
         <Image
