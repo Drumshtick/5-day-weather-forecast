@@ -5,8 +5,7 @@ import DayList from '../components/dayList/DayList'
 import useApplicationData from '../hooks/useApplicationData';
 
 export default function Home() {
-  const { forecast } = useApplicationData();
-
+  const { loading, forecast } = useApplicationData();
 
   return (
     <div>
@@ -14,7 +13,10 @@ export default function Home() {
         <title>5 Day Weather Forecaster</title>
       </Head>
     <main className={styles.mainContainer}>
-      <DayList />
+      <DayList
+        forecast={forecast}
+        loading={loading}
+      />
     </main>
     </div>
   )
