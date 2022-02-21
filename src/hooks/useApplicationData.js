@@ -12,8 +12,12 @@ export default function useApplicationData() {
     1: {},
     2: {},
     3: {},
-    4: {}
+    4: {},
+    5: {},
+    6: {},
+    7: {}
   });
+  const [ loading, setLoading ] = useState(true);
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -22,11 +26,18 @@ export default function useApplicationData() {
   }, []);
   
   useEffect(() => {
-    console.log(location)
     if (location.lat || location.long) {
       axios.get('/api/get4DayForecast', {params: {lat: location.lat, long: location.long}})
       .then(response => {
-        console.log(response.data)
+        const forecastData = response.data;
+        forecastData.daily.forEach((day, i) => {
+          setForecast(prev => {
+            return {
+              ...prev,
+              [i]: day
+            };
+          });
+        });
       })
       .catch(err => {
         console.log("Error receiving forecast data from backend");
@@ -34,6 +45,13 @@ export default function useApplicationData() {
     }
   }, [ location ]);
   
+  useEffect(() => {
+    if (Object.keys(forecast[7]).length > 0) {
+      console.log(forecast);
+      setLoading(false);
+    }
+  }, [ forecast ]);
+
   function handleGeoError(error) {
     console.log("Not Available, Error: ", error.message);
     console.log("Setting lat long to defaults...")
@@ -49,6 +67,6 @@ export default function useApplicationData() {
       long: position.coords.longitude
     });
   };
-  return { forecast };
+  return { forecast, loading };
 };
 
